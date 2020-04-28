@@ -5,8 +5,8 @@
  */
 package services;
 
+import entities.User;
 import java.util.List;
-import models.User;
 
 /**
  *
@@ -14,8 +14,9 @@ import models.User;
  */
 public interface IUser {
     User findById(int id);
+    List<User> findAll();
+    User findByEmail(String email);
     boolean deleteById(int id);
-    List<User> getAllUsers();
-    boolean update(int id, User user);
-    public int save(User user, String url, String username, String password);
+    User updateById(int id, User user);
+    User save(User user);
 }

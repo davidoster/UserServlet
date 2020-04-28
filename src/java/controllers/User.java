@@ -79,14 +79,15 @@ public class User extends HttpServlet {
             out.println("<body>");
             out.println("<h1>User at " + request.getContextPath() + "</h1>");
             HttpSession s = request.getSession();
-            models.User user = new models.User();
+            entities.User user = new entities.User();
             user.setFirstName("AAA");
             user.setLastName("BBB");
             user.setTel("025647893");
             user.setEmail("aaa@bbb.com");
             s.setAttribute("user", user);
             UserImpl userService = new UserImpl();
-            int records = userService.save(user,url,username, password);
+            int records = 0;
+//            records = userService.save(user,url,username, password);
             if(records == 1) out.print("All saved!");
             out.println("</body>");
             out.println("</html>");
